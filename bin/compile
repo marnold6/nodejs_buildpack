@@ -171,7 +171,7 @@ wget --quiet https://download.elastic.co/logstash/logstash/logstash-2.2.2.tar.gz
 tar zxf logstash*tar.gz 
 cd logstash-2.2.2
 echo Running logstash
-bin/logstash agent -f /tmp/staged/app/myLogstash.conf
+bin/logstash agent -f /tmp/staged/app/myLogstash.conf --configtest
 
 
 
