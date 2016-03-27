@@ -170,7 +170,7 @@ cd logstash
 wget --quiet https://download.elasticsearch.org/logstash/logstash/logstash-1.4.2.tar.gz 
 tar zxf logstash-1.4.2.tar.gz 
 cd logstash-1.4.2
-bin/logstash
+bin/logstash agent -help
 
 
 
