@@ -174,7 +174,9 @@ echo Running logstash
 cat /tmp/staged/app/myLogstash.conf
 nohup bin/logstash agent -f /tmp/staged/app/myLogstash.conf --configtest >& o&
 disown
-sleep 10
+echo Sleeping
+sleep 60
+echo Done sleeping
 cat o
 
 
