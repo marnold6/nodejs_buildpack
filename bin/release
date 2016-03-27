@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
-echo FOO
 cat << EOF
 addons: []
 default_process_types:
-  web: npm start
+  web: ps aux 
 EOF

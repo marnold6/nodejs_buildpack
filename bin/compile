@@ -170,37 +170,37 @@ export MY_DIR=/tmp/staged
 echo MATT: Using MY_DIR: $MY_DIR
 pushd $MY_DIR
 
- echo Installing Java
- wget --quiet --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz"
- ls -ltr  jdk*.gz
- tar xfz jdk-7u79-linux-x64.tar.gz
- rm -f jdk*.tar.gz
- export JAVA_HOME=$MY_DIR/jdk1.7.0_79
- export PATH=$PATH:$JAVA_HOME/bin
- java -version
+#  echo Installing Java
+#  wget --quiet --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz"
+#  ls -ltr  jdk*.gz
+#  tar xfz jdk-7u79-linux-x64.tar.gz
+#  rm -f jdk*.tar.gz
+#  export JAVA_HOME=$MY_DIR/jdk1.7.0_79
+#  export PATH=$PATH:$JAVA_HOME/bin
+#  java -version
 
- echo Installing Logstash
- mkdir logstash
- cd logstash
- wget --quiet https://download.elastic.co/logstash/logstash/logstash-2.2.2.tar.gz
- tar zxf logstash*tar.gz 
- rm -f logstash*tar.gz
- echo Running logstash
- LOGSTASH_CONF=$BP_DIR/bin/myLogstash.conf
- cat $LOGSTASH_CONF
- cd logstash-2.2.2
- export LS_HEAP_SIZE=500m
-# bin/logstash --verbose -f $LOGSTASH_CONF -l $MY_DIR/logstash.log < /dev/null >& /tmp/o&
-bin/logstash -f $LOGSTASH_CONF -l /home/vcap/tmp/logstash.log >& /home/vcap/tmp/o &
+#  echo Installing Logstash
+#  mkdir logstash
+#  cd logstash
+#  wget --quiet https://download.elastic.co/logstash/logstash/logstash-2.2.2.tar.gz
+#  tar zxf logstash*tar.gz 
+#  rm -f logstash*tar.gz
+#  echo Running logstash
+#  LOGSTASH_CONF=$BP_DIR/bin/myLogstash.conf
+#  cat $LOGSTASH_CONF
+#  cd logstash-2.2.2
+#  export LS_HEAP_SIZE=500m
+# # bin/logstash --verbose -f $LOGSTASH_CONF -l $MY_DIR/logstash.log < /dev/null >& /tmp/o&
+# bin/logstash -f $LOGSTASH_CONF -l /home/vcap/tmp/logstash.log >& /home/vcap/tmp/o &
 
-echo SLEEPING 10
-sleep 10
-echo RUNNING PS
-ps aux
-echo ls /home/vcap
-ls /home/vcap
-echo ls /home/vcap/app
-ls /home/vcap/app
+# echo SLEEPING 10
+# sleep 10
+# echo RUNNING PS
+# ps aux
+# echo ls /home/vcap
+# ls /home/vcap
+# echo ls /home/vcap/app
+# ls /home/vcap/app
 
 header "Caching build"
 cache_build | output "$LOG_FILE"
