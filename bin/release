@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
-echo RELEASE
 
 cat << EOF
 addons: []
