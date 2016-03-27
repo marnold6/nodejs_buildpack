@@ -151,7 +151,8 @@ cache_build() {
 
 echo ""
 echo MATTS STUFF
-
+echo PWD
+pwd
 export MY_DIR=/tmp/staged
 echo MATT: Using MY_DIR: $MY_DIR
 pushd $MY_DIR
