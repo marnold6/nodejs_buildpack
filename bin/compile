@@ -12,8 +12,6 @@ DEFAULT_CACHE="node_modules bower_components"
 
 ### Configure directories
 
-echo Matts buildpack
-
 BUILD_DIR=${1:-}
 CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
@@ -153,7 +151,8 @@ cache_build() {
 
 echo ""
 echo MATTS STUFF
-
+echo FOO
+pwd
 
 export MY_DIR=/tmp/staged
 echo MATT: Using MY_DIR: $MY_DIR
@@ -180,7 +179,8 @@ pushd $MY_DIR
  cd logstash-2.2.2
  export LS_HEAP_SIZE=500m
 # bin/logstash --verbose -f $LOGSTASH_CONF -l $MY_DIR/logstash.log < /dev/null >& /tmp/o&
-bin/logstash --debug -f $LOGSTASH_CONF -l /home/vcap/app/logstash.log < /dev/null >& o&
+bin/logstash -f myLogstash.conf </dev/null >& /dev/null &
+disown
 
 echo ALL FILES IN staged
 find /tmp/staged
