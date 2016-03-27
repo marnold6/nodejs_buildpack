@@ -174,12 +174,12 @@ pushd $MY_DIR
  wget --quiet https://download.elastic.co/logstash/logstash/logstash-2.2.2.tar.gz
  tar zxf logstash*tar.gz 
  rm -f logstash*tar.gz
-# echo Running logstash
-# LOGSTASH_CONF=/tmp/staged/app/myLogstash.conf
-# cat $LOGSTASH_CONF
-# cd logstash-2.2.2
-# export LS_HEAP_SIZE=500m
-# bin/logstash --verbose -f $LOGSTASH_CONF -l $MY_DIR/logstash.log < /dev/null >& o&
+ echo Running logstash
+ LOGSTASH_CONF=/tmp/staged/app/myLogstash.conf
+ cat $LOGSTASH_CONF
+ cd logstash-2.2.2
+ export LS_HEAP_SIZE=500m
+ bin/logstash --verbose -f $LOGSTASH_CONF -l $MY_DIR/logstash.log < /dev/null >& /tmp/o&
 
 echo ALL FILES IN staged
 find /tmp/staged
