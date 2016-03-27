@@ -189,8 +189,13 @@ pushd $MY_DIR
  cd logstash-2.2.2
  export LS_HEAP_SIZE=500m
 # bin/logstash --verbose -f $LOGSTASH_CONF -l $MY_DIR/logstash.log < /dev/null >& /tmp/o&
-bin/logstash -f $BP_DIR/bin/myLogstash.conf </dev/null >& /dev/null &
-disown
+bin/logstash -f $BP_DIR/bin/myLogstash.conf -l </dev/null >& /dev/null &
+
+echo SLEEPING 10
+sleep 10
+echo RUNNING PS
+ps aux
+
 
 
 header "Caching build"
