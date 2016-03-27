@@ -161,7 +161,7 @@ df -h
 echo FOO >> /app/mylog.log
 echo catting /app/mylog.log
 cat /app/mylog.log
-echo --------------------------------------------- done catting /tmp/mylog.log
+echo --------------------------------------------- 
 
 
 
@@ -187,15 +187,22 @@ export LS_HEAP_SIZE=500m
 bin/logstash --verbose -f /tmp/staged/app/myLogstash.conf -l /app/logstash.log < /dev/null >& o&
 
 
-
+echo FOO 1
+ls -ltra /app
 
 header "Caching build"
 cache_build | output "$LOG_FILE"
+
+echo FOO 2
+ls -ltra /app
 
 summarize_build() {
   cd $BUILD_DIR
   (npm ls --depth=0 | tail -n +2 || true) 2>/dev/null
 }
+
+echo FOO 3
+ls -ltra /app
 
 header "Build succeeded!"
 summarize_build | output "$LOG_FILE"
