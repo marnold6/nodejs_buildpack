@@ -178,12 +178,9 @@ bin/logstash -f /tmp/staged/app/myLogstash.conf --configtest
 bin/logstash --verbose -f /tmp/staged/app/myLogstash.conf -l /tmp/logstash.log < /dev/null >& o&
 echo Sleeping 5
 sleep 5
-echo catting logstash.log
-cat /tmp/logstash.log
-echo --------------------------------------------- done catting logstash.log
-echo FOO >> /tmp/mylog.log
-echo catting /tmp/mylog.log
-cat /tmp/mylog.log
+echo FOO >> /mylog.log
+echo catting /mylog.log
+cat /mylog.log
 echo --------------------------------------------- done catting /tmp/mylog.log
 
 
