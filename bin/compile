@@ -162,10 +162,6 @@ cache_build() {
 echo ""
 echo MATTS STUFF
 
-echo FOOO > /home/vcap/app/MATT_TESTING.txt
-echo FOOO > /home/vcap/MATT_TESTING2.txt
-echo FOOO > /tmp/MATT_TESTING3.txt
-
 export MY_DIR=/tmp/staged
 echo MATT: Using MY_DIR: $MY_DIR
 pushd $MY_DIR
