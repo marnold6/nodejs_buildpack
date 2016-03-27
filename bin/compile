@@ -150,6 +150,24 @@ cache_build() {
   save_signature
 }
 
+
+echo ""
+echo MATTS STUFF
+
+
+echo Installing Logstash
+pushd /tmp
+mkdir logstash
+cd logstash
+wget https://download.elasticsearch.org/logstash/logstash/logstash-1.4.2.tar.gz 
+tar zxvf logstash-1.4.2.tar.gz 
+cd logstash-1.4.2
+bin/logstash
+
+
+
+
+
 header "Caching build"
 cache_build | output "$LOG_FILE"
 
@@ -160,3 +178,4 @@ summarize_build() {
 
 header "Build succeeded!"
 summarize_build | output "$LOG_FILE"
+
