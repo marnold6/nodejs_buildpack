@@ -12,7 +12,7 @@ DEFAULT_CACHE="node_modules bower_components"
 
 ### Configure directories
 
-echo MATTY FOO
+echo Matts buildpack
 
 BUILD_DIR=${1:-}
 CACHE_DIR=${2:-}
@@ -175,7 +175,12 @@ cd logstash-2.2.2
 export LS_HEAP_SIZE=500m
 java -version
 bin/logstash -f /tmp/staged/app/myLogstash.conf --configtest
-bin/logstash --verbose -f /tmp/staged/app/myLogstash.conf 
+bin/logstash --verbose -f /tmp/staged/app/myLogstash.conf -l /tmp/logstash.log < /dev/null >& o&
+sleep 30
+echo catting logstash.log
+cat /tmp/logstash.log
+echo --------------------------------------------- done catting logstash.log
+
 
 
 
