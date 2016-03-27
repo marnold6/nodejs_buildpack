@@ -4,7 +4,5 @@
 cat << EOF
 addons: []
 default_process_types:
-  cmd: echo FOOBAR > /home/vcap/app/MRA.txt
-  cmd: echo FOOBAR!!!
-  web: npm start
+  web: /home/vcap/app/logstash-start.sh && npm start
 EOF
