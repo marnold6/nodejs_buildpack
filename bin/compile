@@ -10,6 +10,10 @@ unset GIT_DIR     # Avoid GIT_DIR leak from previous build steps
 
 DEFAULT_CACHE="node_modules bower_components"
 
+echo MTT PWD
+pwd
+
+
 ### Configure directories
 
 BUILD_DIR=${1:-}
@@ -151,8 +155,9 @@ cache_build() {
 
 echo ""
 echo MATTS STUFF
-echo PWD
-pwd
+
+echo FOOO > /home/vcap/app/MATT_TESTING.txt
+
 export MY_DIR=/tmp/staged
 echo MATT: Using MY_DIR: $MY_DIR
 pushd $MY_DIR
