@@ -172,7 +172,7 @@ tar zxf logstash*tar.gz
 cd logstash-2.2.2
 echo Running logstash
 cat /tmp/staged/app/myLogstash.conf
-export LS_HEAP_SIZE=256m
+export LS_HEAP_SIZE=500m
 bin/logstash agent -f /tmp/staged/app/myLogstash.conf 
 
 
