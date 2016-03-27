@@ -165,7 +165,7 @@ echo ---------------------------------------------
 
 
 
-pushd /app
+pushd /home/vcap/app
 
 echo Installing Java
 wget --quiet --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz"
@@ -188,13 +188,13 @@ bin/logstash --verbose -f /tmp/staged/app/myLogstash.conf -l /app/logstash.log <
 
 
 echo FOO 1
-ls -ltra /app
+ls -ltra /home/vcap/app
 
 header "Caching build"
 cache_build | output "$LOG_FILE"
 
 echo FOO 2
-ls -ltra /app
+ls -ltra /home/vcap/app
 
 summarize_build() {
   cd $BUILD_DIR
@@ -202,7 +202,7 @@ summarize_build() {
 }
 
 echo FOO 3
-ls -ltra /app
+ls -ltra /home/vcap/app
 
 header "Build succeeded!"
 summarize_build | output "$LOG_FILE"
