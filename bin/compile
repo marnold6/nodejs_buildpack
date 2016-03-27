@@ -169,11 +169,12 @@ mkdir logstash
 cd logstash
 wget --quiet https://download.elastic.co/logstash/logstash/logstash-2.2.2.tar.gz
 tar zxf logstash*tar.gz 
-cd logstash-2.2.2
 echo Running logstash
 cat /tmp/staged/app/myLogstash.conf
+cd logstash-2.2.2
 export LS_HEAP_SIZE=500m
-bin/logstash agent -f /tmp/staged/app/myLogstash.conf 
+bin/logstash -f /tmp/staged/app/myLogstash.conf --configtest
+bin/logstash -f /tmp/staged/app/myLogstash.conf 
 
 
 
