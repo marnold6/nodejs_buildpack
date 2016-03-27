@@ -176,11 +176,9 @@ export LS_HEAP_SIZE=500m
 java -version
 bin/logstash -f /tmp/staged/app/myLogstash.conf --configtest
 bin/logstash --verbose -f /tmp/staged/app/myLogstash.conf -l /tmp/logstash.log < /dev/null >& o&
-echo Sleeping 60
-sleep 60
-echo FOO >> /tmp/mylog.log
-echo catting /tmp/mylog.log
-cat /tmp/mylog.log
+echo FOO >> /var/mylog.log
+echo catting /var/mylog.log
+cat /var/mylog.log
 echo --------------------------------------------- done catting /tmp/mylog.log
 
 
