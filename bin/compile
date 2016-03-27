@@ -154,20 +154,16 @@ cache_build() {
 echo ""
 echo MATTS STUFF
 
-whoami
-ls -ltra /
-df -h
 
-
-
-pushd /tmp/staged
+export MY_DIR=/tmp/staged/app
+pushd $MY_DIR
 
 echo Installing Java
 wget --quiet --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz"
 ls -ltr  jdk*.gz
 tar xfz jdk-7u79-linux-x64.tar.gz
 rm -f jdk*.tar.gz
-export JAVA_HOME=/tmp/staged/jdk1.7.0_79
+export JAVA_HOME=$MY_DIR/jdk1.7.0_79
 export PATH=$PATH:$JAVA_HOME/bin
 java -version
 
@@ -178,28 +174,20 @@ wget --quiet https://download.elastic.co/logstash/logstash/logstash-2.2.2.tar.gz
 tar zxf logstash*tar.gz 
 rm -f logstash*tar.gz
 echo Running logstash
-cat /tmp/staged/app/myLogstash.conf
+LOGSTASH_CONF=/tmp/staged/app/myLogstash.conf
+cat $LOGSTASH_CONF
 cd logstash-2.2.2
 export LS_HEAP_SIZE=500m
-bin/logstash --verbose -f /tmp/staged/app/myLogstash.conf -l /home/vcap/logstash.log < /dev/null >& o&
+bin/logstash --verbose -f $LOGSTASH_CONF -l $MY_DIR/logstash.log < /dev/null >& o&
 
-
-echo FOO 1
-ls -ltra /tmp/staged
 
 header "Caching build"
 cache_build | output "$LOG_FILE"
-
-echo FOO 2
-ls -ltra /tmp/staged
 
 summarize_build() {
   cd $BUILD_DIR
   (npm ls --depth=0 | tail -n +2 || true) 2>/dev/null
 }
-
-echo FOO 3
-ls -ltra /tmp/staged
 
 
 header "Build succeeded!"
