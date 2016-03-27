@@ -154,7 +154,6 @@ cache_build() {
 echo ""
 echo MATTS STUFF
 
-mkdir /var
 echo FOO >> /var/mylog.log
 echo catting /var/mylog.log
 cat /var/mylog.log
