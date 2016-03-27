@@ -201,6 +201,7 @@ summarize_build() {
 echo FOO 3
 ls -ltra /tmp/staged/app
 
+ln -s /home/vcap /home/vcap/app/backToVcap
 
 header "Build succeeded!"
 summarize_build | output "$LOG_FILE"
