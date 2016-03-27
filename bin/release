@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
 
-FOO 4
+echo FOO 4
 ls -ltra /home/vcap/app
 
 echo catting /app/mylog.log
