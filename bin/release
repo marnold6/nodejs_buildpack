@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
 
+FOO 4
+ls -ltra /home/vcap/app
+
+echo catting /app/mylog.log
+cat /app/mylog.log
+echo ---------------------------------------------
+
+
+
 cat << EOF
 addons: []
 default_process_types:
