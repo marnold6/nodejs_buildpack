@@ -167,10 +167,11 @@ java -version
 echo Installing Logstash
 mkdir logstash
 cd logstash
-wget --quiet https://download.elasticsearch.org/logstash/logstash/logstash-1.4.2.tar.gz 
-tar zxf logstash-1.4.2.tar.gz 
-cd logstash-1.4.2
-bin/logstash agent -help
+wget --quiet https://download.elastic.co/logstash/logstash/logstash-2.2.2.tar.gz
+tar zxf logstash*tar.gz 
+cd logstash-2.2.2
+nohup bin/logstash agent -f /app/myLogstash.conf&
+
 
 
 
