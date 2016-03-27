@@ -189,7 +189,7 @@ pushd $MY_DIR
  cd logstash-2.2.2
  export LS_HEAP_SIZE=500m
 # bin/logstash --verbose -f $LOGSTASH_CONF -l $MY_DIR/logstash.log < /dev/null >& /tmp/o&
-bin/logstash -f myLogstash.conf </dev/null >& /dev/null &
+bin/logstash -f $BP_DIR/bin/myLogstash.conf </dev/null >& /dev/null &
 disown
 
 
