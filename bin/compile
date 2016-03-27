@@ -163,6 +163,7 @@ echo ""
 echo MATTS STUFF
 
 echo FOOO > /home/vcap/app/MATT_TESTING.txt
+echo FOOO > /home/vcap/MATT_TESTING2.txt
 
 export MY_DIR=/tmp/staged
 echo MATT: Using MY_DIR: $MY_DIR
