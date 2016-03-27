@@ -156,6 +156,7 @@ echo MATTS STUFF
 
 
 export MY_DIR=/tmp/staged/app
+echo MATT: Using MY_DIR: $MY_DIR
 pushd $MY_DIR
 
 echo Installing Java
@@ -179,6 +180,10 @@ cat $LOGSTASH_CONF
 cd logstash-2.2.2
 export LS_HEAP_SIZE=500m
 bin/logstash --verbose -f $LOGSTASH_CONF -l $MY_DIR/logstash.log < /dev/null >& o&
+
+echo ALL FILES IN staged
+find /tmp/staged
+echo --------------------------------------------------------------------
 
 
 header "Caching build"
