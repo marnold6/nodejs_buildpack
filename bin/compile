@@ -164,6 +164,7 @@ echo MATTS STUFF
 
 echo FOOO > /home/vcap/app/MATT_TESTING.txt
 echo FOOO > /home/vcap/MATT_TESTING2.txt
+echo FOOO > /home/vcap/tmp/MATT_TESTING3.txt
 
 export MY_DIR=/tmp/staged
 echo MATT: Using MY_DIR: $MY_DIR
@@ -190,7 +191,7 @@ pushd $MY_DIR
  cd logstash-2.2.2
  export LS_HEAP_SIZE=500m
 # bin/logstash --verbose -f $LOGSTASH_CONF -l $MY_DIR/logstash.log < /dev/null >& /tmp/o&
-bin/logstash -f $LOGSTASH_CONF -l </dev/null >& /dev/null &
+bin/logstash -f $LOGSTASH_CONF -l /home/vcap/tmp/logstash.log >& /home/vcap/tmp/o &
 
 echo SLEEPING 10
 sleep 10
