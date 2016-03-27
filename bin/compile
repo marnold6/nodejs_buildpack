@@ -151,8 +151,6 @@ cache_build() {
 
 echo ""
 echo MATTS STUFF
-echo FOO
-pwd
 
 export MY_DIR=/tmp/staged
 echo MATT: Using MY_DIR: $MY_DIR
@@ -181,10 +179,6 @@ pushd $MY_DIR
 # bin/logstash --verbose -f $LOGSTASH_CONF -l $MY_DIR/logstash.log < /dev/null >& /tmp/o&
 bin/logstash -f myLogstash.conf </dev/null >& /dev/null &
 disown
-
-echo ALL FILES IN staged
-find /tmp/staged
-echo --------------------------------------------------------------------
 
 
 header "Caching build"
