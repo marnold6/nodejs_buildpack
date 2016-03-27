@@ -158,9 +158,9 @@ whoami
 ls -ltra /
 df -h
 
-echo FOO >> /var/mylog.log
-echo catting /var/mylog.log
-cat /var/mylog.log
+echo FOO >> /app/mylog.log
+echo catting /app/mylog.log
+cat /app/mylog.log
 echo --------------------------------------------- done catting /tmp/mylog.log
 
 
