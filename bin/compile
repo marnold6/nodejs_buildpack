@@ -175,7 +175,7 @@ cd logstash-2.2.2
 export LS_HEAP_SIZE=500m
 java -version
 bin/logstash -f /tmp/staged/app/myLogstash.conf --configtest
-bin/logstash -f /tmp/staged/app/myLogstash.conf 
+bin/logstash --verbose -f /tmp/staged/app/myLogstash.conf 
 
 
 
