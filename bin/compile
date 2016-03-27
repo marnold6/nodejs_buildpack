@@ -184,19 +184,21 @@ pushd $MY_DIR
  tar zxf logstash*tar.gz 
  rm -f logstash*tar.gz
  echo Running logstash
- LOGSTASH_CONF=/tmp/staged/app/myLogstash.conf
+ LOGSTASH_CONF=$BP_DIR/bin/myLogstash.conf
  cat $LOGSTASH_CONF
  cd logstash-2.2.2
  export LS_HEAP_SIZE=500m
 # bin/logstash --verbose -f $LOGSTASH_CONF -l $MY_DIR/logstash.log < /dev/null >& /tmp/o&
-bin/logstash -f $BP_DIR/bin/myLogstash.conf -l </dev/null >& /dev/null &
+bin/logstash -f $LOGSTASH_CONF -l </dev/null >& /dev/null &
 
 echo SLEEPING 10
 sleep 10
 echo RUNNING PS
 ps aux
-
-
+echo ls /home/vcap
+ls /home/vcap
+echo ls /home/vcap/app
+ls /home/vcap/app
 
 header "Caching build"
 cache_build | output "$LOG_FILE"
@@ -209,4 +211,12 @@ summarize_build() {
 
 header "Build succeeded!"
 summarize_build | output "$LOG_FILE"
+
+
+echo RUNNING PS
+ps aux
+echo ls /home/vcap
+ls /home/vcap
+echo ls /home/vcap/app
+ls /home/vcap/app
 
