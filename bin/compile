@@ -155,7 +155,7 @@ echo ""
 echo MATTS STUFF
 
 
-export MY_DIR=/tmp/staged/app
+export MY_DIR=/tmp/staged
 echo MATT: Using MY_DIR: $MY_DIR
 pushd $MY_DIR
 
